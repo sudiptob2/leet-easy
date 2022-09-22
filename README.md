@@ -1,3 +1,5 @@
+![](https://static.leetcode-cn.com/cn-legacy-assets/images/LeetCode_Sharing.png)
+
 # LeetEasy
 Desktop notification for easy daily challenges in [leetcode](https://leetcode.com/).
 
