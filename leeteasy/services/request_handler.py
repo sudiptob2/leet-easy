@@ -16,6 +16,6 @@ class RequestHandler:
         try:
             response = requests.post(url, json={'query': query})
         except Exception:
-            # TODO: log the exception
+            # TODO: some retry logic will be better
             return
         return response.json().get('data').get('activeDailyCodingChallengeQuestion')
