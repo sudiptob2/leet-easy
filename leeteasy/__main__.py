@@ -11,18 +11,21 @@ sleep_duration = 10 * 60
 
 
 @click.command()
+@click.option(
+    '-d',
+    '--difficulty',
+    type=click.Choice(['Medium', 'Hard'], case_sensitive=False),
+    help='Additional problem difficulty for notification.'
+)
 @click.argument('time')
-def main(time) -> None:
+def main(time, difficulty) -> None:
     """
-    Schedule notification at given TIME.
+    Schedule notification at given TIME [24hrs].
 
-    Args:
-        time: 24 hours time, ex: 13:20
-
-    Raises:
-        SystemExit: When an invalid time is given.
+    Example: leeteasy 13:15
     """
     TimeValidator.validate(time)
+    Notifier.target_difficulty.append(difficulty)
     schedule.every().day.at(time).do(Notifier.notify)
 
     while True:
