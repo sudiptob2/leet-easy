@@ -7,7 +7,7 @@ from leeteasy.services.request_parser import RequestParser
 class Notifier:
     """Handles notification related functionalities."""
 
-    target_difficulty = ['Medium']
+    target_difficulty = ['Easy']
     app_name = '\U0001F514 LeeEasy - Easy Problem Alert'
 
     @classmethod
