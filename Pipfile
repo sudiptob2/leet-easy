@@ -9,6 +9,7 @@ pytest = "*"
 pytest-mock = "*"
 click = "*"
 schedule = "*"
+notify-py = "*"
 
 [dev-packages]
 
