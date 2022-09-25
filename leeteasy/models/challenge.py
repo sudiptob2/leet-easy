@@ -34,5 +34,6 @@ class Challenge:
 
     def __str__(self):
         """Returns the string rep of the class."""
-        return f"Title: {self.title}\nAcceptance Rate: {self.ac_rate}\nDifficulty: {self.difficulty}\n" + \
+        return f"Title: {self.title}\nAcceptance Rate: {self.ac_rate}" \
+               f"\nDifficulty: {self.difficulty}\n" + \
                f"id: {self.question_id}\nTags: {self.tags}"
