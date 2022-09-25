@@ -11,7 +11,11 @@ class TestRequestParser:
         def fake_get_challenge_info():
             RequestHandler.challenge_info = fake_challenge_data
 
-        mocker.patch.object(RequestHandler, 'get_challenge_info', fake_get_challenge_info)
+        mocker.patch.object(
+            RequestHandler,
+            'get_challenge_info',
+            fake_get_challenge_info,
+        )
         challenge = RequestParser.parse()
 
         assert challenge.title == fake_challenge_data.get('question').get('title')

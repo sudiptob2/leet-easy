@@ -6,7 +6,8 @@ def fake_challenge_data():
     """Returns sample daily challenge data."""
     return {
         "date": "2022-09-22",
-        "userStatus": "NotStart", "link": "/problems/reverse-words-in-a-string-iii/",
+        "userStatus": "NotStart",
+        "link": "/problems/reverse-words-in-a-string-iii/",
         "question": {
             "acRate": 80.7035733689484,
             "difficulty": "Easy",
@@ -20,8 +21,16 @@ def fake_challenge_data():
             "hasVideoSolution": False,
             "hasSolution": True,
             "topicTags": [
-                {"name": "Two Pointers", "id": "VG9waWNUYWdOb2RlOjk=", "slug": "two-pointers"},
-                {"name": "String", "id": "VG9waWNUYWdOb2RlOjEw", "slug": "string"},
+                {
+                    "name": "Two Pointers",
+                    "id": "VG9waWNUYWdOb2RlOjk=",
+                    "slug": "two-pointers",
+                },
+                {
+                    "name": "String",
+                    "id": "VG9waWNUYWdOb2RlOjEw",
+                    "slug": "string",
+                },
             ]
         }
     }

@@ -1,5 +1,4 @@
 from leeteasy.models.challenge import Challenge
-from leeteasy.services.request_handler import RequestHandler
 
 
 class RequestParser:
