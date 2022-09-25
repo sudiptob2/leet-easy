@@ -8,6 +8,7 @@ requests = "*"
 pytest = "*"
 pytest-mock = "*"
 click = "*"
+schedule = "*"
 
 [dev-packages]
 
