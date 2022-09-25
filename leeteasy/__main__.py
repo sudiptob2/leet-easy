@@ -13,7 +13,15 @@ sleep_duration = 10 * 60
 @click.command()
 @click.argument('time')
 def main(time) -> None:
-    """Schedule notification at TIME."""
+    """
+    Schedule notification at given TIME.
+
+    Args:
+        time: 24 hours time, ex: 13:20
+
+    Raises:
+        SystemExit: When an invalid time is given.
+    """
     TimeValidator.validate(time)
     schedule.every().day.at(time).do(Notifier.notify)
 
