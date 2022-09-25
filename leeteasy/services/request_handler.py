@@ -1,6 +1,6 @@
 import requests
 
-from app.constant import Constant
+from leeteasy.constant import Constant
 
 
 class RequestHandler:

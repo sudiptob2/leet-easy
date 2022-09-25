@@ -1,4 +1,4 @@
-from app.services.request_handler import RequestHandler
+from leeteasy.services.request_handler import RequestHandler
 
 
 class TestRequestHandler:

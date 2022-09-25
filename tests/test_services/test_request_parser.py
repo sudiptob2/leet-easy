@@ -1,5 +1,5 @@
-from app.services.request_handler import RequestHandler
-from app.services.request_parser import RequestParser
+from leeteasy.services.request_handler import RequestHandler
+from leeteasy.services.request_parser import RequestParser
 
 
 class TestRequestParser:
