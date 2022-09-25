@@ -8,23 +8,25 @@ class Notifier:
     """Handles notification related functionalities."""
 
     target_difficulty = ['Easy']
-    app_name = 'LeetEasy - Easy Problem Alert \U0001F514'
+    app_name = 'LeetEasy'
+    challenge = None
 
     @classmethod
     def prepare_notification(cls):
         """Prepares notification msg and triggers notification."""
         challenge_info = RequestHandler.get_challenge_info()
-        challenge = RequestParser.parse(challenge_info)
-        if challenge.difficulty in cls.target_difficulty:
+        cls.challenge = RequestParser.parse(challenge_info)
+        if cls.challenge.difficulty in cls.target_difficulty:
             return '{0}\nLink: {1}'.format(
-                challenge.title,
-                challenge.problem_link,
+                cls.challenge.title,
+                cls.challenge.problem_link,
             )
 
     @classmethod
     def notify(cls):
         notification = Notify()
-        notification.title = cls.app_name
         notification.message = cls.prepare_notification()
-        notification.icon = 'assests/leetcoin.png'
+        notification.title = f'{cls.app_name} - {cls.challenge.difficulty} ' \
+                             f'Problem Alert \U0001F514'
+        notification.icon = 'assets/leetcoin.png'
         notification.send()
