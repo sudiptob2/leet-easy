@@ -8,7 +8,7 @@ class Notifier:
     """Handles notification related functionalities."""
 
     target_difficulty = ['Easy']
-    app_name = '\U0001F514 LeeEasy - Easy Problem Alert'
+    app_name = '\U0001F514 LeetEasy - Easy Problem Alert'
 
     @classmethod
     def prepare_notification(cls):
