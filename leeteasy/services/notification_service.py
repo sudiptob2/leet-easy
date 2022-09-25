@@ -1,4 +1,4 @@
-import subprocess
+from notifypy import Notify
 
 from leeteasy.services.request_handler import RequestHandler
 from leeteasy.services.request_parser import RequestParser
@@ -8,7 +8,7 @@ class Notifier:
     """Handles notification related functionalities."""
 
     target_difficulty = ['Easy']
-    app_name = '\U0001F514 LeetEasy - Easy Problem Alert'
+    app_name = 'LeetEasy - Easy Problem Alert \U0001F514 '
 
     @classmethod
     def prepare_notification(cls):
@@ -23,6 +23,8 @@ class Notifier:
 
     @classmethod
     def notify(cls):
-        msg = cls.prepare_notification()
-        if msg:
-            subprocess.run(['notify-send', cls.app_name, msg])
+        notification = Notify()
+        notification.title = cls.app_name
+        notification.message = cls.prepare_notification()
+        notification.icon = 'assests/leetcoin.png'
+        notification.send()
