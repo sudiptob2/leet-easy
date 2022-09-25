@@ -1,3 +1,5 @@
+from typing import Union
+
 import requests
 
 from leeteasy.constant import Constant
@@ -6,10 +8,8 @@ from leeteasy.constant import Constant
 class RequestHandler:
     """Provides services for requesting leetcode API."""
 
-    challenge_info = None
-
     @classmethod
-    def get_challenge_info(cls):
+    def get_challenge_info(cls) -> Union[dict, None]:
         """Gets daily challenge info from leetcode API."""
         url = Constant.LEETCODE_API_ENDPOINT
         query = Constant.DAILY_CODING_CHALLENGE_QUERY
@@ -18,4 +18,4 @@ class RequestHandler:
         except Exception:
             # TODO: log the exception
             return
-        cls.challenge_info = response.json().get('data').get('activeDailyCodingChallengeQuestion')
+        return response.json().get('data').get('activeDailyCodingChallengeQuestion')

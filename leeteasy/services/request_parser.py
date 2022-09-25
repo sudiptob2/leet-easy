@@ -6,10 +6,9 @@ class RequestParser:
     """Parse responses of leetcode API."""
 
     @classmethod
-    def parse(cls) -> Challenge:
+    def parse(cls, challenge_info: dict) -> Challenge:
         """Parse API data ans update challenge model."""
-        RequestHandler.get_challenge_info()
-        return RequestParser._parse_challenge_info(RequestHandler.challenge_info)
+        return RequestParser._parse_challenge_info(challenge_info)
 
     @classmethod
     def _parse_challenge_info(cls, challenge_info) -> Challenge:
@@ -23,8 +22,3 @@ class RequestParser:
         challenge.title_slug = challenge_info.get('question').get('titleSlug')
         challenge.raw_tags = challenge_info.get('question').get('topicTags')
         return challenge
-
-
-if __name__ == '__main__':
-    test_challenge = RequestParser.parse()
-    print(test_challenge)
