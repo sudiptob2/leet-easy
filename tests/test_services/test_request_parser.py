@@ -1,4 +1,3 @@
-from app.models.challenge import Challenge
 from app.services.request_handler import RequestHandler
 from app.services.request_parser import RequestParser
 
@@ -8,13 +7,12 @@ class TestRequestParser:
 
     def test_parse(self, mocker, fake_challenge_data):
         """Tests parse method."""
-        challenge = Challenge()
 
         def fake_get_challenge_info():
             RequestHandler.challenge_info = fake_challenge_data
 
         mocker.patch.object(RequestHandler, 'get_challenge_info', fake_get_challenge_info)
-        RequestParser.parse()
+        challenge = RequestParser.parse()
 
         assert challenge.title == fake_challenge_data.get('question').get('title')
         assert challenge.difficulty == fake_challenge_data.get('question').get('difficulty')
