@@ -26,6 +26,7 @@ class Notifier:
     def notify(cls):
         notification = Notify()
         notification.message = cls.prepare_notification()
-        notification.title = f'{cls.app_name} - {cls.challenge.difficulty} Problem Alert \U0001F514'
+        notification.title = f'{cls.app_name} - {cls.challenge.difficulty} ' \
+                             f'Problem Alert \U0001F514'
         notification.icon = 'assests/leetcoin.png'
         notification.send()
