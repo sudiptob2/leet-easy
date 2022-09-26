@@ -26,6 +26,7 @@ class Notifier:
 
     @classmethod
     def notify(cls):
+        """Send desktop notification."""
         app_name_with_subtitle = f'{cls.app_name} - Easy Problem Notification'
         icon_path = Path(__file__).parent.parent / 'assets/leetcoin.png'
         notification = Notify(
@@ -35,4 +36,5 @@ class Notifier:
         notification.message = cls.prepare_notification()
         notification.title = f'{cls.app_name} - {cls.challenge.difficulty} ' \
                              f'Problem Alert \U0001F514'
-        notification.send()
+        if notification.message:
+            notification.send()
