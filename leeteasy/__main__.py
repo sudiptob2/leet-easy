@@ -6,9 +6,6 @@ import schedule
 from leeteasy.services.notification_service import Notifier
 from leeteasy.utils.validatiors import TimeValidator
 
-# check every 10 min
-sleep_duration = 10 * 60
-
 
 @click.command()
 @click.option(
@@ -17,8 +14,14 @@ sleep_duration = 10 * 60
     type=click.Choice(['Medium', 'Hard'], case_sensitive=False),
     help='Additional problem difficulty for notification.'
 )
+@click.option(
+    "--sleep_duration",
+    default=600,
+    type=click.IntRange(1, 3600, clamp=True),
+    help='Sleep duration in seconds.'
+)
 @click.argument('time')
-def main(time, difficulty) -> None:
+def main(time, difficulty, sleep_duration) -> None:
     """
     Schedule notification at given TIME [24hrs].
 
