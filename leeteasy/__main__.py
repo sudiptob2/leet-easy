@@ -1,3 +1,4 @@
+import os
 import time as clock
 
 import click
@@ -7,7 +8,7 @@ from leeteasy.services.notification_service import Notifier
 from leeteasy.utils.validatiors import TimeValidator
 
 
-@click.command()
+@click.command('start')
 @click.option(
     '-d',
     '--difficulty',
@@ -21,7 +22,7 @@ from leeteasy.utils.validatiors import TimeValidator
     help='Sleep duration in seconds.'
 )
 @click.argument('time')
-def main(time, difficulty, sleep_duration) -> None:
+def execute_start(time, difficulty, sleep_duration) -> None:
     """
     Schedule notification at given TIME [24hrs].
 
@@ -36,5 +37,20 @@ def main(time, difficulty, sleep_duration) -> None:
         clock.sleep(sleep_duration)
 
 
+@click.command('stop')
+def execute_stop() -> None:
+    """Stops leeteasy process"""
+    os.system('pkill -9 -f leeteasy')
+
+
+@click.group('leeteasy')
+def execute_root():
+    """v0.4.0 | supported version strings: 0.7.2"""
+    pass
+
+
+execute_root.add_command(execute_start)
+execute_root.add_command(execute_stop)
+
 if __name__ == '__main__':
-    main()
+    execute_root()
