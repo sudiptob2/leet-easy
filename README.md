@@ -24,6 +24,7 @@ To add additional difficulty
 python -m leeteasy start 14:30 --difficulty medium &
 ```
 This will schedule leeteasy for **Easy and Medium** problem.
+<br/>
 To stop leeteasy
 ```shell
 python -m leeteasy stop
