@@ -7,6 +7,8 @@ Desktop notification for easy daily challenges in [leetcode](https://leetcode.co
 We all know `Leetcode's` daily challenges are awesome :sunglasses: However, sometimes these challenges are quite difficult for people who are just starting out problem-solving 	:smiling_face_with_tear:  
 This tool will send desktop notification when an **Easy** daily problem is published. This way you won't miss any opportunity to grab some easy **Leetcoins** :coin: and stay motivated for the day :fire:
 
+## Requirements
+- python >= 3.8
 ## Installation
 ```shell
 pip install leeteasy
@@ -14,12 +16,12 @@ pip install leeteasy
 ## run
 Schedule leeteasy to send notification for easy leetcode problem at 14:30 (24 hours format time)
 ```shell
-python -m leeteasy start 14:30
+python -m leeteasy start 14:30 &
 ```
 To add additional difficulty
 
 ```shell
-python -m leeteasy start 14:30 --difficulty medium
+python -m leeteasy start 14:30 --difficulty medium &
 ```
 This will schedule leeteasy for **Easy and Medium** problem.
 To stop leeteasy
