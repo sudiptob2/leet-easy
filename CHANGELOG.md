@@ -22,4 +22,9 @@ Feature:
 Fix:
 
 - Null notification sent when problem difficulty is not in the target difficulty fixed.
-    
+
+## 1.0.1 (Alpha)
+
+Fix:
+
+- Notification not working when `leeteasy` is scheduled with cronjob
