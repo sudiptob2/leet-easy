@@ -30,10 +30,20 @@ To stop leeteasy
 ```shell
 python -m leeteasy stop
 ```
-> **_NOTE:_**  By default `leeteasy` checks for scheduled task in every 10 minutes/600 seconds.
-> So there might be 10 minutes delay from the actual scheduled time while getting the notification. However,
+> **_NOTE:_**  By default `leeteasy` checks for scheduled task in every 1 hour/3600 seconds.
+> So there might be 1-hour delay from the actual scheduled time while getting the notification. However,
 > this can be controlled using `--sleep_duration` option.
 
+## Linux cronjob guide
+Set a cronjob to automatically start `leeteasy` at system boot.
+```shell
+# open cronjob editor
+crontab -e
+
+# add the following line
+@reboot python -m leeteasy start 14:30 &
+
+```
 ## Contribution guideline
 
 If you like this project and want to improve by adding features, fixing bugs or anything, please follow

@@ -1,4 +1,5 @@
 import os
+import pwd
 import time as clock
 
 import click
@@ -17,7 +18,7 @@ from leeteasy.utils.validatiors import TimeValidator
 )
 @click.option(
     "--sleep_duration",
-    default=600,
+    default=3600,
     type=click.IntRange(1, 3600, clamp=True),
     help='Sleep duration in seconds.'
 )
@@ -53,4 +54,5 @@ execute_root.add_command(execute_start)
 execute_root.add_command(execute_stop)
 
 if __name__ == '__main__':
+    os.environ['DBUS_SESSION_BUS_ADDRESS'] = f'unix:path=/run/user/{pwd.getpwuid(os.getuid()).pw_uid}/bus'
     execute_root()
