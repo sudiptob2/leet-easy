@@ -17,7 +17,7 @@ from leeteasy.utils.validatiors import TimeValidator
 )
 @click.option(
     "--sleep_duration",
-    default=600,
+    default=3600,
     type=click.IntRange(1, 3600, clamp=True),
     help='Sleep duration in seconds.'
 )
