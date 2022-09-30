@@ -1,6 +1,6 @@
 import os
-import pwd
 import time as clock
+from sys import platform
 
 import click
 import schedule
@@ -54,5 +54,9 @@ execute_root.add_command(execute_start)
 execute_root.add_command(execute_stop)
 
 if __name__ == '__main__':
-    os.environ['DBUS_SESSION_BUS_ADDRESS'] = f'unix:path=/run/user/{pwd.getpwuid(os.getuid()).pw_uid}/bus'
+    if platform != 'win32':
+        import pwd
+
+        os.environ[
+            'DBUS_SESSION_BUS_ADDRESS'] = f'unix:path=/run/user/{pwd.getpwuid(os.getuid()).pw_uid}/bus'  # NOQA: E501
     execute_root()

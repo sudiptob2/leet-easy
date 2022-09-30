@@ -28,3 +28,9 @@ Fix:
 Fix:
 
 - Notification not working when `leeteasy` is scheduled with cronjob
+
+## 1.0.2 (Alpha)
+
+Fix:
+
+- `import pwd` fix for windows.
