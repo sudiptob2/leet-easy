@@ -26,7 +26,6 @@ class RequestHandler:
                     On second hit sleep 20 minutes.
                     On third hit sleep 30 minutes.
                 """
-                time.sleep(((i+1)*10)*60) # sleep takes seconds
-        # if it hits here, max retries were exceeded and no connection was establised
+                time.sleep(((i+1)*10)*60)
         raise SystemExit(f"""Connection to leetcode failed and max retries have been exceeded.
                              Total attempts made: {max_retries}. Try again""")
