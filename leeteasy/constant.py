@@ -31,3 +31,6 @@ class Constant:
         }
     }
     """
+
+    # http call retries
+    HTTP_CALL_RETRIES = 3
