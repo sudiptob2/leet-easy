@@ -14,7 +14,7 @@ class RequestHandler:
         """Gets daily challenge info from leetcode API."""
         url = Constant.LEETCODE_API_ENDPOINT
         query = Constant.DAILY_CODING_CHALLENGE_QUERY
-        max_retries = Constant.HTTP_CALL_RETRIES # Change HTTP_CALL_RETRIES for more retries
+        max_retries = Constant.HTTP_CALL_RETRIES  # Change HTTP_CALL_RETRIES for more retries
 
         for i in range(max_retries):
             try:
