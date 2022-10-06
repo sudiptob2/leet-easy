@@ -5,6 +5,7 @@ from sys import platform
 import click
 import schedule
 
+from leeteasy.constant import Constant
 from leeteasy.services.notification_service import Notifier
 from leeteasy.utils.validatiors import TimeValidator
 
@@ -14,13 +15,13 @@ from leeteasy.utils.validatiors import TimeValidator
     '-d',
     '--difficulty',
     type=click.Choice(['Medium', 'Hard'], case_sensitive=False),
-    help='Additional problem difficulty for notification.'
+    help='Additional problem difficulty for notification.',
 )
 @click.option(
-    "--sleep_duration",
-    default=3600,
-    type=click.IntRange(1, 3600, clamp=True),
-    help='Sleep duration in seconds.'
+    '--sleep_duration',
+    default=Constant.DEFAULT_SLEEP,
+    type=click.IntRange(1, Constant.DEFAULT_SLEEP, clamp=True),
+    help='Sleep duration in seconds.',
 )
 @click.argument('time')
 def execute_start(time, difficulty, sleep_duration) -> None:
@@ -33,21 +34,20 @@ def execute_start(time, difficulty, sleep_duration) -> None:
     Notifier.target_difficulty.append(difficulty)
     schedule.every().day.at(time).do(Notifier.notify)
 
-    while True:
+    while True:  # NOQA: WPS457
         schedule.run_pending()
         clock.sleep(sleep_duration)
 
 
 @click.command('stop')
 def execute_stop() -> None:
-    """Stops leeteasy process"""
+    """Stop leeteasy process."""
     os.system('pkill -9 -f leeteasy')
 
 
 @click.group('leeteasy')
 def execute_root():
-    """v0.4.0 | supported version strings: 0.7.2"""
-    pass
+    """Group child command."""
 
 
 execute_root.add_command(execute_start)
@@ -55,8 +55,11 @@ execute_root.add_command(execute_stop)
 
 if __name__ == '__main__':
     if platform != 'win32':
-        import pwd
+        import pwd  # NOQA: WPS433
 
-        os.environ[
-            'DBUS_SESSION_BUS_ADDRESS'] = f'unix:path=/run/user/{pwd.getpwuid(os.getuid()).pw_uid}/bus'  # NOQA: E501
+        bus_addr = 'unix:path=/run/user/{0}/bus'.format(
+            pwd.getpwuid(os.getuid()).pw_uid,
+        )
+
+        os.environ['DBUS_SESSION_BUS_ADDRESS'] = bus_addr
     execute_root()
