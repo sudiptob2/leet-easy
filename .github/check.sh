@@ -21,7 +21,7 @@ run_checks() {
   python -m mypy leeteasy tests
 
   # Running tests:
-  python -m pytest
+  python -m pytest --cov
 
   # Checking dependencies status:
   python -m pip check
