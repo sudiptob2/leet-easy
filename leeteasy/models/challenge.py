@@ -1,16 +1,16 @@
-from typing import List
+from typing import Dict, List, Optional
 
 
 class Challenge:
     """Singleton Model class for daily challenge."""
 
     title: str = ''
-    raw_tags: List[dict] = None
+    raw_tags: List[Dict[str, str]] = []
     ac_rate: float = 0
-    difficulty: str = None
-    question_id: int = None
+    difficulty: str = ''
+    question_id: int = 0
     title_slug: str = ''
-    date: str = None
+    date: str = ''
 
     def __new__(cls):
         """Override default class creation logic."""
@@ -26,7 +26,7 @@ class Challenge:
         )
 
     @property
-    def tags(self) -> List[str]:
+    def tags(self) -> List[Optional[str]]:
         """Return the link of the problem."""
         tags = []
         for tag in self.raw_tags:

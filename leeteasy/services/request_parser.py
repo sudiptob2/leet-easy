@@ -1,3 +1,5 @@
+from typing import Dict
+
 from leeteasy.models.challenge import Challenge
 
 
@@ -5,7 +7,7 @@ class RequestParser:
     """Parse responses of leetcode API."""
 
     @classmethod
-    def parse(cls, challenge_info: dict) -> Challenge:
+    def parse(cls, challenge_info: Dict) -> Challenge:
         """Parse API data ans update challenge model."""
         return cls._parse_challenge_info(challenge_info)
 

@@ -2,6 +2,7 @@ from pathlib import Path
 
 from notifypy import Notify
 
+from leeteasy.models.challenge import Challenge
 from leeteasy.services.request_handler import RequestHandler
 from leeteasy.services.request_parser import RequestParser
 
@@ -11,7 +12,7 @@ class Notifier:
 
     target_difficulty = ['Easy']
     app_name = 'LeetEasy'
-    challenge = None
+    challenge: Challenge
 
     @classmethod
     def prepare_notification(cls):
