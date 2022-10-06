@@ -1,0 +1,35 @@
+name: Test
+on:
+  - pull_request
+  - push
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.8', '3.9', '3.10']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip setuptools wheel
+          python3 -m pip install -r requirements.txt
+          pip install -e .
+      - name: create env file
+        run: |
+          touch config/.env
+          cat config/.env.template > config/.env
+      # Run tests
+      - name: Test
+        run: |
+          python3 --version
+          python3 -m pytest 
+
+    
