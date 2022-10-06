@@ -1,5 +1,5 @@
 import time
-from typing import Union
+from typing import Dict
 
 import requests
 
@@ -9,23 +9,17 @@ from leeteasy.constant import Constant
 class RequestHandler:
     """Provides services for requesting leetcode API."""
 
-    @classmethod
-    def get_challenge_info(cls) -> Union[dict, None]:
-        """Gets daily challenge info from leetcode API."""
-        url = Constant.LEETCODE_API_ENDPOINT
-        query = Constant.DAILY_CODING_CHALLENGE_QUERY
-        max_retries = Constant.HTTP_CALL_RETRIES  # Change HTTP_CALL_RETRIES for more retries
+    url = Constant.LEETCODE_API_ENDPOINT
+    query = Constant.DAILY_CODING_CHALLENGE_QUERY
+    max_retries = Constant.HTTP_CALL_RETRIES
 
-        for i in range(max_retries):
+    @classmethod
+    def get_challenge_info(cls) -> Dict:
+        """Get daily challenge info from leetcode API."""
+        for iteration in range(cls.max_retries):
             try:
-                response = requests.post(url, json={'query': query})
+                response = requests.post(cls.url, json={'query': cls.query})
                 return response.json().get('data').get('activeDailyCodingChallengeQuestion')
             except Exception:
-                """
-                    On first hit sleep 10 minutes.
-                    On second hit sleep 20 minutes.
-                    On third hit sleep 30 minutes.
-                """
-                time.sleep(((i+1)*10)*60)
-        raise SystemExit(f"""Connection to leetcode failed and max retries have been exceeded.
-                             Total attempts made: {max_retries}. Try again""")
+                time.sleep(((iteration + 1) * 10) * 60)
+        raise SystemExit('Could not connect to the leetcode server.')
