@@ -16,6 +16,9 @@ pytest-mock = "*"
 mypy = "*"
 darglint = "*"
 flake8-docstrings = "*"
+wemake-python-styleguide = "*"
+flake8-pytest-style = "*"
+flake8-bandit = "*"
 
 [requires]
 python_version = "3.8"
