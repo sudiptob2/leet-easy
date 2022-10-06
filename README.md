@@ -1,5 +1,6 @@
 # LeetEasy
-![](docs/leeteasy-demo.png)
+![Leetcode](https://user-images.githubusercontent.com/76167753/194104838-acd5d8d0-3a0a-49bc-af2f-9d4546d0cb7b.gif)
+
 <br/>
 <br/>
 Desktop notification for easy daily challenges in [leetcode](https://leetcode.com/).
