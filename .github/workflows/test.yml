@@ -22,10 +22,6 @@ jobs:
           python3 -m pip install --upgrade pip setuptools wheel
           python3 -m pip install -r requirements.txt
           pip install -e .
-      - name: create env file
-        run: |
-          touch config/.env
-          cat config/.env.template > config/.env
       # Run tests
       - name: Test
         run: |
