@@ -15,7 +15,7 @@ class Notifier:
 
     @classmethod
     def prepare_notification(cls):
-        """Prepares notification msg and triggers notification."""
+        """Prepare notification msg and triggers notification."""
         challenge_info = RequestHandler.get_challenge_info()
         cls.challenge = RequestParser.parse(challenge_info)
         if cls.challenge.difficulty in cls.target_difficulty:
@@ -27,14 +27,16 @@ class Notifier:
     @classmethod
     def notify(cls):
         """Send desktop notification."""
-        app_name_with_subtitle = f'{cls.app_name} - Easy Problem Notification'
+        app_name_with_subtitle = '{0} - Easy Problem Notification'.format(cls.app_name)
         icon_path = Path(__file__).parent.parent / 'assets/leetcoin.png'
         notification = Notify(
             default_notification_application_name=app_name_with_subtitle,
             default_notification_icon=icon_path,
         )
         notification.message = cls.prepare_notification()
-        notification.title = f'{cls.app_name} - {cls.challenge.difficulty} ' \
-                             f'Problem Alert \U0001F514'
+        notification.title = '{0} - {1} Problem Alert \U0001F514'.format(
+            cls.app_name,
+            cls.challenge.difficulty,
+        )
         if notification.message:
             notification.send()
