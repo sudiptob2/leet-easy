@@ -16,7 +16,7 @@ class TestRequestParser:
             'get_challenge_info',
             fake_get_challenge_info,
         )
-        challenge = RequestParser.parse()
+        challenge = RequestParser.parse(fake_challenge_data)
 
         assert challenge.title == fake_challenge_data.get('question').get('title')
         assert challenge.difficulty == fake_challenge_data.get('question').get('difficulty')
