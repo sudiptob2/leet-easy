@@ -13,27 +13,32 @@ class Challenge:
     date: str = None
 
     def __new__(cls):
-        if not hasattr(cls, 'instance'):
-            cls.instance = super(Challenge, cls).__new__(cls)
+        """Override default class creation logic."""
+        if not hasattr(cls, 'instance'):  # NOQA : WPS421
+            cls.instance = super(Challenge, cls).__new__(cls)  # NOQA: WPS608
         return cls.instance
 
     @property
     def problem_link(self) -> str:
-        """Returns the link of the problem."""
+        """Return the link of the problem."""
         return 'https://leetcode.com/problems/{0}/'.format(
             self.title_slug,
         )
 
     @property
     def tags(self) -> List[str]:
-        """Returns the link of the problem."""
+        """Return the link of the problem."""
         tags = []
         for tag in self.raw_tags:
             tags.append(tag.get('name'))
         return tags
 
     def __str__(self):
-        """Returns the string rep of the class."""
-        return f"Title: {self.title}\nAcceptance Rate: {self.ac_rate}" \
-               f"\nDifficulty: {self.difficulty}\n" + \
-               f"id: {self.question_id}\nTags: {self.tags}"
+        """Return the string rep of the class."""
+        return 'Title: {0}\nAcceptance: {1}\nDifficulty: {2}\nID: {3}\nTags: {4}\n'.format(
+            self.title,
+            self.ac_rate,
+            self.difficulty,
+            self.question_id,
+            self.tags,
+        )
