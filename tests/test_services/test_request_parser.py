@@ -9,14 +9,14 @@ class TestRequestParser:
         """Tests parse method."""
 
         def fake_get_challenge_info():
-            RequestHandler.challenge_info = fake_challenge_data
+            return fake_challenge_data
 
         mocker.patch.object(
             RequestHandler,
             'get_challenge_info',
             fake_get_challenge_info,
         )
-        challenge = RequestParser.parse()
+        challenge = RequestParser.parse(RequestHandler.get_challenge_info())
 
         assert challenge.title == fake_challenge_data.get('question').get('title')
         assert challenge.difficulty == fake_challenge_data.get('question').get('difficulty')
