@@ -19,5 +19,5 @@ Code, PR, commit message format, etc. conventions I follow when I code. Please f
 
 #### Commits
 1. [Closes #1234] Submit button added
-2. [Fixes #1232] Infinite scroll fixed
+2. [#1232] fix: Infinite scroll fixed
 3. Add unit tests for xyz feature
