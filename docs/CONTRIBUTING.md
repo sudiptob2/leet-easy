@@ -18,6 +18,6 @@ Code, PR, commit message format, etc. conventions I follow when I code. Please f
 3. test/2222-unit-tests
 
 #### Commits
-1. [Closes #1234] Submit button added
+1. [#1234] feature: Submit button added.
 2. [#1232] fix: Infinite scroll fixed
 3. Add unit tests for xyz feature
