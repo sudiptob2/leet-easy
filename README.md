@@ -1,3 +1,5 @@
+![](https://static.leetcode-cn.com/cn-legacy-assets/images/LeetCode_Sharing.png)
+
 # LeetEasy
 ![](docs/leeteasy-demo.png)
 <br/>
