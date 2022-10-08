@@ -1,6 +1,5 @@
 Given below is the general workflow we expect you to follow while making contributions to this project.
 
-<br>
 
 ### Workflow
 1. Go to the issues tab and find an issue you would like to work on.
