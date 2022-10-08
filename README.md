@@ -46,33 +46,6 @@ crontab -e
 ```
 ## Contributing
 
-We are very happy to see you here. Before sending your pull requests, make sure that you read the whole workflow and the contributing guidelines given below. If you have any doubt regarding the contributing guide, please feel free to [state it clearly in an issue](https://github.com/sudiptob2/leet-easy/issues/new/choose)
+We are very happy to see you here. Before sending your pull requests, make sure that you read the whole workflow and the naming conventions mentioned in the [contributing guidelines](docs/CONTRIBUTING.md). 
 
-
-### Workflow
-1. Go to the issues tab and find an issue you would like to work on.
-
-    1.1. Clarify any doubts in the comments section of the issue.
-
-2. Fork the project
-
-3. Create a branch and make small changes on it.
-
-4. Create a **draft PR**
-
-5. Then make other changes and push to the remote branch you created.
-
-In this way, the maintainers will be able to provide early reviews and comments for your commits which will save time later on.
-
-6. Once the above steps are done, you can change the PR from *draft to active*
-
-
-7. Once the PR is approved, make sure to update and sync your branch
-
-8. Wait for the maintainers to merge your contribution
-
-9. Congratulations! You made your first contribution to Leet Easy
-
-Keep contributing. We're eager to see your contributions!
-
-For **naming conventions and standard practices for commits, branches and PRs** refer to the [contributing guidelines](docs/CONTRIBUTING.md).
+If you have any doubts regarding the contributing guidelines, please feel free to [state it clearly in an issue](https://github.com/sudiptob2/leet-easy/issues/new/choose). All the best!
