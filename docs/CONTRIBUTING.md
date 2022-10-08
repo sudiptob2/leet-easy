@@ -15,7 +15,7 @@ Given below is the general workflow we expect you to follow while making contrib
 5. Then make other changes and push to the remote branch you created. In this way, the maintainers will be able to provide early reviews and comments for your commits which will save time later on.
 
 
-6. Once the above steps are done, you can change the PR status from *draft to active*
+6. Once the above steps are done, you can change the PR status from **draft to active**
 
 
 7. Once the PR is approved, make sure to update and sync your branch
