@@ -50,6 +50,6 @@ Please follow the links given below to see the code, PR, commit message, etc. co
 #### Commits
 1. [#1234] feature: Submit button added.
 2. [#1232] fix: Infinite scroll fixed
-3. Add unit tests for xyz feature
+3. [#333] test: Add unit tests for xyz feature
 
 Keep contributing. We're eager to see your contributions!
