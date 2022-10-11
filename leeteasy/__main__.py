@@ -31,9 +31,9 @@ def execute_start(time, difficulty, sleep_duration) -> None:
 
     Example: leeteasy 13:15
     """
-    TimeValidator.validate(time)
+    valid_time = TimeValidator.validate(time)
 
-    if datetime.now().time() > TimeValidator.validate(time):    #To notify users of missed notifications
+    if datetime.now().time() > valid_time:    #To notify users of missed notifications
         Notifier.notify()
     
     Notifier.target_difficulty.append(difficulty)
