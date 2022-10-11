@@ -49,8 +49,7 @@ jobs:
           python3 -m pytest 
 
       # Run bash script 
-      - name: run Bash script      
-        uses: actions/checkout@v1
+      - name: run Bash script     
         run: pipenv run bash ./.github/check.sh
 
     
