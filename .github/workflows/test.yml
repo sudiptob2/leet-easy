@@ -41,6 +41,6 @@ jobs:
       # Run bash script 
         #uses: actions/checkout@v1
       - name: run Bash script
-        run: bash ./.github/check.sh
+        run: pipenv run bash ./.github/check.sh
 
     
