@@ -37,6 +37,8 @@ jobs:
       # Run bash script 
         #uses: actions/checkout@v1
       - name: run Bash script
-        run: bash ./.github/check.sh
+        run: |
+          python3 -m pip install flake8
+          bash ./.github/check.sh
 
     
