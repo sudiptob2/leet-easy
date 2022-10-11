@@ -45,7 +45,7 @@ jobs:
       - name: Test
         run: |
           python3 --version
-          python3 -m pip install pytest pytest-mock flake8 mypy
+          python3 -m pip install pytest pytest-mock flake8 mypy requests
           python3 -m pytest 
 
       # Run bash script 
