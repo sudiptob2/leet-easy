@@ -34,5 +34,9 @@ jobs:
           python3 --version
           python3 -m pip install pytest pytest-mock
           python3 -m pytest 
+      # Run bash script 
+      - name: run Bash script
+        uses: actions/checkout@v1
+        run: bash ./.github/check.sh
 
     
