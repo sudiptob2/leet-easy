@@ -17,30 +17,30 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - uses: actions/cache@v2
+      - name: Install pipenv
+        run: python3 -m pip install --upgrade pipenv
+      - name: create .venv folder
+        run: mkdir -p .venv
+      - name: Caching Dependencies
+        uses: actions/cache@v2
         with:
-          path: ~/.cache/pip
-          key: ${{matrix.os}}-pip-${{ hashFiles('**/requirements.txt') }}
+          path: ./.venv
+          key: ${{matrix.os}}-pip-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
-            ${{ matrix.os }}-pip- 
+            ${{ matrix.os }}-pipenv 
       - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip setuptools wheel
-          python3 -m pip install -r requirements.txt
-          pip install -e .
-      # Run tests
-      - name: Test
-        run: |
-          python3 --version
-          python3 -m pip install pytest pytest-mock
-          python3 -m pytest 
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: pipenv install --dev --verbose
+
+      # # Run tests
+      # - name: Test
+      #   run: |
+      #     python3 --version
+      #     python3 -m pip install pytest pytest-mock
+      #     python3 -m pytest 
       # Run bash script 
         #uses: actions/checkout@v1
       - name: run Bash script
-        run: |
-          python3 -m pip install flake8
-          python3 -m pip install mypy
-          mypy --install-types 
-          bash ./.github/check.sh
+        run: bash ./.github/check.sh
 
     
