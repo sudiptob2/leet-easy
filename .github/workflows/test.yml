@@ -10,8 +10,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ['3.8', '3.9', '3.10']
-    env: 
-      PIPENV_VENV_IN_PROJECT: "enabled"
 
     steps:
       - uses: actions/checkout@v2
@@ -25,8 +23,8 @@ jobs:
         run: python3 -m pip install --upgrade pipenv
 
       # create .venv folder
-      # - name: create .venv folder
-      #   run: mkdir -p .venv
+      - name: create .venv folder
+        run: mkdir -p .venv
 
       # caching dependencies
       - name: Caching Dependencies
