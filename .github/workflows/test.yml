@@ -10,6 +10,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ['3.8', '3.9', '3.10']
+    env: 
+      PIPENV_VENV_IN_PROJECT: "enabled"
 
     steps:
       - uses: actions/checkout@v2
@@ -23,8 +25,8 @@ jobs:
         run: python3 -m pip install --upgrade pipenv
 
       # create .venv folder
-      - name: create .venv folder
-        run: mkdir -p .venv
+      # - name: create .venv folder
+      #   run: mkdir -p .venv
 
       # caching dependencies
       - name: Caching Dependencies
@@ -32,14 +34,16 @@ jobs:
         id: cache-dependencies
         with:
           path: ./.venv
-          key: ${{matrix.os}}-${{ matrix.python-version }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          key: ${{ matrix.os }}-${{ matrix.python-version }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
             ${{ matrix.os }}-pipenv 
 
       # install dependencies      
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: pipenv install --dev --verbose
+        run: |
+          touch Pipfile
+          pipenv install --dev --verbose
 
       # Run tests
       # - name: Test
