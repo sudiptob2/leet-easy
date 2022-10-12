@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         python-version: ['3.8', '3.9', '3.10']
 
     steps:
@@ -32,7 +32,7 @@ jobs:
         id: cache-dependencies
         with:
           path: ./.venv
-          key: ${{matrix.os}}-pip-${{ hashFiles('**/Pipfile.lock') }}
+          key: ${{matrix.os}}-${{ matrix.python-version }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
             ${{ matrix.os }}-pipenv 
 
@@ -42,14 +42,14 @@ jobs:
         run: pipenv install --dev --verbose
 
       # Run tests
-      - name: Test
-        run: |
-          python3 --version
-          python3 -m pip install pytest pytest-mock flake8 mypy requests
-          python3 -m pytest 
+      # - name: Test
+      #   run: |
+      #     python3 --version
+      #     python3 -m pip install pytest pytest-mock flake8 mypy requests
+      #     python3 -m pytest 
 
       # Run bash script 
-      # - name: run Bash script     
-      #   run: pipenv run bash ./.github/check.sh
+      - name: run Bash script     
+        run: pipenv run bash ./.github/check.sh
 
     
