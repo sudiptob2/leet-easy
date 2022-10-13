@@ -43,7 +43,7 @@ jobs:
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
           pipenv install --dev --verbose
-          pipenv install types-request --dev
+          pipenv install types-requests --dev
 
       # Run tests
       # - name: Test
