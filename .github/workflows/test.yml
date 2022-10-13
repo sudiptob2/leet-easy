@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macOS-latest]
         python-version: ['3.8', '3.9', '3.10']
 
     steps:
@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Python version
+        run: python -c "import sys; print(sys.version)"
 
       # Install pipenv
       - name: Install pipenv
@@ -32,7 +34,7 @@ jobs:
         id: cache-dependencies
         with:
           path: ./.venv
-          key: ${{ matrix.os }}-${{ matrix.python-version }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          key: ${{ matrix.os }}-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
             ${{ matrix.os }}-pipenv 
 
@@ -40,8 +42,8 @@ jobs:
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
-          touch Pipfile
           pipenv install --dev --verbose
+          pipenv install types-request --dev
 
       # Run tests
       # - name: Test
