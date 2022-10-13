@@ -8,7 +8,7 @@ class TimeValidator:
 
     @classmethod
     def validate(cls, time: str):
-        """Validates the given string is in valid time format."""
+        """Validate the given string is in valid time format."""
         try:
             return datetime.strptime(time, cls.time_format).time()
         except ValueError:
