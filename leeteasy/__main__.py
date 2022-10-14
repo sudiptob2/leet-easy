@@ -1,7 +1,7 @@
 import os
 import time as clock
+from datetime import datetime
 from sys import platform
-import datetime
 
 import click
 import schedule
@@ -32,11 +32,11 @@ def execute_start(time, difficulty, sleep_duration) -> None:
     Example: leeteasy 13:15
     """
     valid_time = TimeValidator.validate(time)
+    Notifier.target_difficulty.append(difficulty)
 
     if datetime.now().time() > valid_time:
         Notifier.notify()
-    
-    Notifier.target_difficulty.append(difficulty)
+
     schedule.every().day.at(time).do(Notifier.notify)
 
     while True:  # NOQA: WPS457
