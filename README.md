@@ -44,7 +44,8 @@ crontab -e
 @reboot python -m leeteasy start 14:30 &
 
 ```
-## Contribution guideline
+## Contributing
 
-If you like this project and want to improve by adding features, fixing bugs or anything, please follow
-the [contributing guidelines](docs/CONTRIBUTING.md).
+We are very happy to see you here. Before sending your pull requests, make sure that you read the whole workflow and the naming conventions mentioned in the [contributing guidelines](docs/CONTRIBUTING.md). 
+
+If you have any doubts regarding the contributing guidelines, please feel free to [state it clearly in an issue](https://github.com/sudiptob2/leet-easy/issues/new/choose). All the best!
