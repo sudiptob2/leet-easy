@@ -34,3 +34,6 @@ class Constant:
 
     # http call retries
     HTTP_CALL_RETRIES = 3
+
+    # default sleep duration
+    DEFAULT_SLEEP = 3600
