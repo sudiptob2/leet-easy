@@ -1,52 +1,24 @@
-<!-- Please refer to our contributing documentation for any questions on submitting a pull request, or let us know here if you need any help: https://github.com/sudiptob2/leet-easy/blob/main/docs/CONTRIBUTING.md -->
+# Description
 
-## Pull request checklist
+Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
-Please check if your PR fulfills the following requirements:
-- [ ] Tests for the changes have been added (for bug fixes / features)
-- [ ] Docs have been reviewed and added / updated if needed (for bug fixes / features)
-  - Some docs updates need to be made in the `ionic-docs` repo, in a separate PR. See the [contributing guide](https://github.com/sudiptob2/leet-easy/blob/main/docs/CONTRIBUTING.md) for details.
+Fixes # (issue)
 
+## Type of change
 
-## Pull request type
+Please delete options that are not relevant.
 
-<!-- Please do not submit updates to dependencies unless it fixes an issue. --> 
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] This change requires a documentation update
 
-<!-- Please try to limit your pull request to one type, submit multiple pull requests if needed. --> 
+# Checklist:
 
-Please check the type of change your PR introduces:
-- [ ] Bugfix
-- [ ] Feature
-- [ ] Code style update (formatting, renaming)
-- [ ] Refactoring (no functional changes, no api changes)
-- [ ] Build related changes
-- [ ] Documentation content changes
-- [ ] Other (please describe): 
-
-
-## What is the current behavior?
-<!-- Please describe the current behavior that you are modifying. -->
-
-
-<!-- Issues are required for both bug fixes and features. -->
-Issue URL: 
-
-
-## What is the new behavior?
-<!-- Please describe the behavior or changes that are being added by this PR. -->
-
--
--
--
-
-## Does this introduce a breaking change?
-
-- [ ] Yes
-- [ ] No
-
-<!-- If this introduces a breaking change, please describe the impact and migration path for existing applications below. -->
-
-
-## Other information
-
-<!-- Any other information that is important to this PR such as screenshots of how the component looks before and after the change. -->
+- [ ] branch name follows the branch naming convention mentioned [here](https://github.com/sudiptob2/leet-easy/blob/main/docs/BRANCH-NAMING.md)
+- [ ] commit messages to follow the format mentioned in [contributing.md](https://github.com/sudiptob2/leet-easy/blob/main/docs/CONTRIBUTING.md)
+- [ ] I have tested my code using `bash .github/check.sh`
+- [ ] I have performed a self-review of my code
+- [ ] I have made corresponding changes to the documentation
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
