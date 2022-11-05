@@ -34,3 +34,10 @@ Fix:
 Fix:
 
 - `import pwd` fix for windows.
+
+## 1.2.0 (Alpha)
+
+Features:
+
+  - Retry logic implemented on connection failed with leetcode API
+  - Notification on power on if the scheduled time had passed #50
